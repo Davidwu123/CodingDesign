@@ -6,21 +6,40 @@ import java.util.Date;
 /**
  * @author wuwei
  * @title: Log
- * @projectName DataStuct
+ * @projectName DataStruct
  * @description: TODO
- * @date 2019-12-0113:26
+ * @date 2019-12-01 13:26
  */
 public class Log {
 
-    public static void d(String tag, String value) {
-        System.out.print(getCurrentTime());
-        System.out.print(" Thread-name: " + Thread.currentThread().getName() + "\t" + tag + ":\t");
-        System.out.println(value);
+
+    private static void println(String type, String tag, Object value) {
+        String msg = String.format("%s\tThread-name: %s\t%s/%s:\t%s",
+                getCurrentTime(), Thread.currentThread().getName(), type, tag, value.toString());
+        System.out.println(msg);
     }
+
+    public static void d(Class clazz, Object value) {
+        d(clazz.getSimpleName(), value);
+    }
+
+    public static void d(String tag, Object value) {
+        println("DEBUG", tag, value);
+    }
+
+    public static void e(Class clazz, Object value) {
+        e(clazz.getSimpleName(), value);
+    }
+
+    public static void e(String tag, Object value) {
+        println("ERROR", tag, value);
+    }
+
 
     private static String getCurrentTime() {
         Date d = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-HH:mm:sss");
         return sdf.format(d);
     }
+
 }
