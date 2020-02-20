@@ -1,6 +1,7 @@
 package com.study.design.pattern;
 
 import com.study.design.common.Log;
+import com.study.design.pattern.singleton.EnumIdGenerator;
 import com.study.design.pattern.singleton.IdGenerator;
 
 /**
@@ -17,17 +18,22 @@ public class TestMain {
         new Thread(new Runnable() {
             @Override
             public void run() {
-                Log.d(TestMain.class, "run thread 1");
-                Log.d(TestMain.class, IdGenerator.getInstance1().getId());
+                Log.d(TestMain.class, "run thread 1" + "\t" + IdGenerator.getInstance4().getId());
             }
-        }, "thread-one").start();
+        }, "thread-1").start();
 
         new Thread(new Runnable() {
             @Override
             public void run() {
-                Log.d(TestMain.class, "run thread 2");
-                Log.d(TestMain.class, IdGenerator.getInstance1().getId());
+                Log.d(TestMain.class, "run thread 2" + "\t" + IdGenerator.getInstance4().getId());
             }
-        }, "thread-two").start();
+        }, "thread-2").start();
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Log.d(TestMain.class, "run thread 3" + "\t" + EnumIdGenerator.INSTANCE.getId());
+            }
+        }, "thread-3").start();
     }
 }
