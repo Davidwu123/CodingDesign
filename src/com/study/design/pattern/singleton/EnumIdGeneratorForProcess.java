@@ -11,7 +11,7 @@ import java.util.concurrent.atomic.AtomicLong;
  * @description: TODO
  * @date 2020-02-20 09:54
  */
-public enum EnumIdGenerator {
+public enum EnumIdGeneratorForProcess implements IIdGenerator{
     /**
      * 枚举类实现单例：
      * 1.实例的创建线程安全：由JVM保证
@@ -21,25 +21,25 @@ public enum EnumIdGenerator {
     INSTANCE{
         @Override
         public long getId() {
-            Log.d(EnumIdGenerator.class, "enum super getId");
+            Log.d(EnumIdGeneratorForProcess.class, "enum super getId");
             return super.getId();
         }
 
         @Override
         public void test() {
-            Log.d(EnumIdGenerator.class, "override test func");
+            Log.d(EnumIdGeneratorForProcess.class, "override test func");
         }
     };
 
 
-    EnumIdGenerator() {
-        Log.d(EnumIdGenerator.class, "枚举类构造函数初始化");
+    EnumIdGeneratorForProcess() {
+        Log.d(EnumIdGeneratorForProcess.class, "枚举类构造函数初始化");
     }
 
     private AtomicLong mAtomicLong = new AtomicLong(0);
 
     public long getId() {
-        Log.d(EnumIdGenerator.class, "111");
+        Log.d(EnumIdGeneratorForProcess.class, "111");
         return this.mAtomicLong.incrementAndGet();
     }
 

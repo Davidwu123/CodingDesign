@@ -8,10 +8,10 @@ import java.util.concurrent.atomic.AtomicLong;
  * @author wuwei
  * @title: IdGenerator
  * @projectName CodingDesign
- * @description: TODO
+ * @description: 进程唯一的单例
  * @date 2020-02-19 11:01
  */
-public class IdGenerator {
+public class IdGeneratorForProcess implements IIdGenerator{
     private static AtomicLong mAtomicLong = new AtomicLong(0);
 
     /**
@@ -22,7 +22,7 @@ public class IdGenerator {
      * 弊端(不一定坏处，真正场景还是提前初始化耗时操作较好)：初始化构造函数时间长；成员变量占用内存多
      * 3.getInstance()方法高性能：只有读取实例操作，且读取操作没有线程安全问题，不需要加锁保证读写一致
      */
-    private static final IdGenerator sInstance1 = new IdGenerator(1);
+    private static final IdGeneratorForProcess sInstance1 = new IdGeneratorForProcess(1);
 
 
     /**
@@ -33,7 +33,7 @@ public class IdGenerator {
      * 3.getInstance()方法上加了锁，会影响性能
      * 弊端：如果频繁使用，每使用一次都会获取/释放锁，性能?
      */
-    private static IdGenerator sInstance2;
+    private static IdGeneratorForProcess sInstance2;
 
 
     /**
@@ -46,7 +46,7 @@ public class IdGenerator {
      * PS：volatile关键字为了禁止指令重排(指令重排：会出现thread-1 sInstance3已经new成功,
      * 但释放锁后thread-2就开始获取到并调用了，但是初始化构造函数还没有执行完，加上该关键字就可以禁止指令重排)
      */
-    private static volatile IdGenerator sInstance3;
+    private static volatile IdGeneratorForProcess sInstance3;
 
 
     /**
@@ -62,48 +62,48 @@ public class IdGenerator {
             Log.d(SingletonHolder.class, "静态内部类加载");
         }
 
-        private static final IdGenerator sInstance4 = new IdGenerator(1);
+        private static final IdGeneratorForProcess sInstance4 = new IdGeneratorForProcess(1);
     }
 
 
     static {
-        Log.d(IdGenerator.class, "类加载");
+        Log.d(IdGeneratorForProcess.class, "类加载");
     }
 
 
-    private IdGenerator() {
-        Log.d(IdGenerator.class, "类初始化");
+    private IdGeneratorForProcess() {
+        Log.d(IdGeneratorForProcess.class, "类初始化");
     }
 
-    private IdGenerator(int arg) {
-        Log.d(IdGenerator.class, "带参数类初始化\t" + arg);
+    private IdGeneratorForProcess(int arg) {
+        Log.d(IdGeneratorForProcess.class, "带参数类初始化\t" + arg);
     }
 
 
     //饿汉式
-    public static IdGenerator getInstance1() {
+    public static IdGeneratorForProcess getInstance1() {
         return sInstance1;
     }
 
     //懒汉式
-    public static synchronized IdGenerator getInstance2() {
+    public static synchronized IdGeneratorForProcess getInstance2() {
         if (sInstance2 == null) {
-            sInstance2 = new IdGenerator();
+            sInstance2 = new IdGeneratorForProcess();
         }
         return sInstance2;
     }
 
     //双重检测
-    public static IdGenerator getInstance3() {
+    public static IdGeneratorForProcess getInstance3() {
         if (sInstance3 == null) {
             /**
              * 多个同时进入后，第一个调用线程获取锁，第二个线程等待,
              * 等待Nms后(Nms内第一个线程进入，为空则创建实例了)，第一线程释放锁
              * 第二个线程获取锁，并进入，进入后非空则不创建
              */
-            synchronized (IdGenerator.class) {//一般锁对象或在锁类都可以，但是该方法为静态方法，里面引用的全局变量必须是静态的，且当前类非静态类，不可以作为静态上下文
+            synchronized (IdGeneratorForProcess.class) {//一般锁对象或在锁类都可以，但是该方法为静态方法，里面引用的全局变量必须是静态的，且当前类非静态类，不可以作为静态上下文
                 if (sInstance3 == null) {
-                    sInstance3 = new IdGenerator();
+                    sInstance3 = new IdGeneratorForProcess();
                 }
             }
         }
@@ -112,13 +112,13 @@ public class IdGenerator {
 
 
     //静态内部类
-    public static IdGenerator getInstance4() {
+    public static IdGeneratorForProcess getInstance4() {
         return SingletonHolder.sInstance4;
     }
 
 
     public long getId() {
-        Log.d(IdGenerator.class, "id: " + sInstance1.toString());
+        Log.d(IdGeneratorForProcess.class, "id: " + sInstance1.toString());
         return mAtomicLong.incrementAndGet();
     }
 
