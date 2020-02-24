@@ -3,7 +3,7 @@ package com.study.design.pattern.factory.player;
 import com.study.design.common.Log;
 import com.study.design.pattern.factory.player.method.IPlayerFactory;
 import com.study.design.pattern.factory.player.method.PlayerFactoryMap;
-import com.study.design.pattern.factory.player.simple.SimplePlayerFactoryV3;
+import com.study.design.pattern.factory.player.simple.SimplePlayerFactory;
 import com.study.design.pattern.singleton.TestMain;
 
 /**
@@ -21,9 +21,9 @@ public class testMain {
     }
 
     private static void executeSimpleFactory() {
-        IPlayer player = SimplePlayerFactoryV3.create("exo");
-        Log.d(TestMain.class, "simpleFactory player instance1 is " + player.toString());
-        player = SimplePlayerFactoryV3.create("exo");
+        IPlayer player = SimplePlayerFactory.createByClazz(MediaPlayer.class);
+//        Log.d(TestMain.class, "simpleFactory player instance1 is " + player.toString());
+//        player = SimplePlayerFactoryV3.create("exo");
         Log.d(TestMain.class, "simpleFactory player instance2 is " + player.toString());
         Log.d(testMain.class, "simpleFactory do play");
         player.play();

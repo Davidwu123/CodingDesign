@@ -35,4 +35,13 @@ public class SimplePlayerFactory {
         }
         return player;
     }
+
+    public static IPlayer createByClazz(Class clazz) {
+        try {
+            return (IPlayer) clazz.newInstance();
+        } catch (InstantiationException | IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }
