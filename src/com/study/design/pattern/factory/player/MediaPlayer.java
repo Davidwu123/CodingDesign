@@ -17,17 +17,17 @@ public class MediaPlayer implements IPlayer {
 
     @Override
     public void play() {
-
+        Log.d(MediaPlayer.class, "media play");
     }
 
     @Override
     public void pause() {
-
+        Log.d(MediaPlayer.class, "media pause");
     }
 
     @Override
     public void stop() {
-
+        Log.d(MediaPlayer.class, "media stop");
     }
 
     @Override
