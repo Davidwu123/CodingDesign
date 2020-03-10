@@ -9,7 +9,7 @@ import com.study.design.common.Log;
  * @description: 附属能力，可动态添加给任意实体类
  * @date 2020-03-03 13:31
  */
-public class JYKongfu extends FiliterKongfu {
+public class JYKongfu extends FilterKongfu {
 
     public JYKongfu(AbsKongfu kongfu) {
         super(kongfu);

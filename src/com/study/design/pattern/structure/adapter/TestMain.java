@@ -4,7 +4,7 @@ package com.study.design.pattern.structure.adapter;
  * @author wuwei
  * @title: TestMain
  * @projectName CodingDesign
- * @description: TODO
+ * @description: 属于事后的补救措施，在规划和设计的时候用不到
  * @date 2020-03-03 21:07
  */
 public class TestMain {
@@ -15,7 +15,7 @@ public class TestMain {
         player1.release();
 
 
-        IPlayer player2 = new MyPlayerAdatpterByInjection(new MyPlayer());
+        IPlayer player2 = new MyPlayerAdapterByInjection(new MyPlayer());
         player2.play();
         player2.pause();
         player2.release();

@@ -9,7 +9,7 @@ import com.study.design.common.Log;
  * @description: TODO
  * @date 2020-03-03 13:33
  */
-public class XLKongfu extends FiliterKongfu {
+public class XLKongfu extends FilterKongfu {
 
     public XLKongfu(AbsKongfu kongfu) {
         super(kongfu);

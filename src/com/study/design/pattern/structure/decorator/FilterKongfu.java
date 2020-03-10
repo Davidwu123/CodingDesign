@@ -9,9 +9,9 @@ import com.study.design.common.Log;
  * @description: TODO
  * @date 2020-03-03 13:35
  */
-public class FiliterKongfu extends AbsKongfu {
+public class FilterKongfu extends AbsKongfu {
     protected AbsKongfu mKongfu;
-    public FiliterKongfu(AbsKongfu kongfu) {
+    public FilterKongfu(AbsKongfu kongfu) {
         this.mKongfu = kongfu;
     }
 
