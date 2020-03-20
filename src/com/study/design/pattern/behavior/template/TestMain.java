@@ -1,5 +1,8 @@
 package com.study.design.pattern.behavior.template;
 
+import com.study.design.common.Log;
+import com.study.design.pattern.behavior.template.abs.MainActivity;
+
 /**
  * @author wuwei
  * @title: TestMain
@@ -9,15 +12,20 @@ package com.study.design.pattern.behavior.template;
  */
 public class TestMain {
     public static void main(String[] args) {
-        executeTemplateForReuse();
+        executeTemplateByAbstractMethod();
         System.out.println("++++++++++++++");
-        executeTemplateForExtension();
+        executeTemplateByCallback();
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> Log.d(TestMain.class, "shut down")));
     }
 
-    private static void executeTemplateForReuse() {
+    private static void executeTemplateByAbstractMethod() {
         new MainActivity().templateMethod();
     }
 
-    private static void executeTemplateForExtension() {
+    private static void executeTemplateByCallback() {
+        com.study.design.pattern.behavior.template.callback.MainActivity activity =
+                new com.study.design.pattern.behavior.template.callback.MainActivity();
+        activity.templateGetMethod();
+        activity.templatePostMethod();
     }
 }

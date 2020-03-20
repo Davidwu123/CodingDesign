@@ -1,4 +1,4 @@
-package com.study.design.pattern.behavior.template;
+package com.study.design.pattern.behavior.template.abs;
 
 import com.study.design.common.Log;
 
