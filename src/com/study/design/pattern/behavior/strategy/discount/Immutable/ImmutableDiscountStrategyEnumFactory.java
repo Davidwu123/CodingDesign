@@ -1,6 +1,6 @@
-package com.study.design.pattern.behavior.strategy.Immutable;
+package com.study.design.pattern.behavior.strategy.discount.Immutable;
 
-import com.study.design.pattern.behavior.strategy.*;
+import com.study.design.pattern.behavior.strategy.discount.*;
 
 /**
  * @author wuwei

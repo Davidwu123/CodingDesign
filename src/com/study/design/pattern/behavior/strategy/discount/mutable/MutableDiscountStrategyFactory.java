@@ -1,6 +1,6 @@
-package com.study.design.pattern.behavior.strategy.mutable;
+package com.study.design.pattern.behavior.strategy.discount.mutable;
 
-import com.study.design.pattern.behavior.strategy.DiscountType;
+import com.study.design.pattern.behavior.strategy.discount.DiscountType;
 
 import java.util.HashMap;
 import java.util.Map;

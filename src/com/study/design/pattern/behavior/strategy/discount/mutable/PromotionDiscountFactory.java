@@ -1,7 +1,7 @@
-package com.study.design.pattern.behavior.strategy.mutable;
+package com.study.design.pattern.behavior.strategy.discount.mutable;
 
-import com.study.design.pattern.behavior.strategy.IDiscountStrategy;
-import com.study.design.pattern.behavior.strategy.PromotionDiscountStrategy;
+import com.study.design.pattern.behavior.strategy.discount.IDiscountStrategy;
+import com.study.design.pattern.behavior.strategy.discount.PromotionDiscountStrategy;
 
 /**
  * @author wuwei

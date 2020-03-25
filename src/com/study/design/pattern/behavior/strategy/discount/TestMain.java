@@ -1,11 +1,11 @@
-package com.study.design.pattern.behavior.strategy;
+package com.study.design.pattern.behavior.strategy.discount;
 
 import com.study.design.common.Log;
-import com.study.design.pattern.behavior.strategy.Immutable.ImmutableDiscountStrategyEnumFactory;
-import com.study.design.pattern.behavior.strategy.Immutable.ImmutableDiscountStrategyFactory;
-import com.study.design.pattern.behavior.strategy.mutable.IDiscountStrategyFactory;
-import com.study.design.pattern.behavior.strategy.mutable.MutableDiscountStrategyFactory;
-import com.study.design.pattern.behavior.strategy.mutable.MutableDiscountStrategyReflectFactory;
+import com.study.design.pattern.behavior.strategy.discount.Immutable.ImmutableDiscountStrategyEnumFactory;
+import com.study.design.pattern.behavior.strategy.discount.Immutable.ImmutableDiscountStrategyFactory;
+import com.study.design.pattern.behavior.strategy.discount.mutable.IDiscountStrategyFactory;
+import com.study.design.pattern.behavior.strategy.discount.mutable.MutableDiscountStrategyFactory;
+import com.study.design.pattern.behavior.strategy.discount.mutable.MutableDiscountStrategyReflectFactory;
 
 /**
  * @author wuwei

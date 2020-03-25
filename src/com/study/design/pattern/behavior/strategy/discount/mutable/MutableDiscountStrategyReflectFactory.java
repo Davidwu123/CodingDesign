@@ -1,9 +1,9 @@
-package com.study.design.pattern.behavior.strategy.mutable;
+package com.study.design.pattern.behavior.strategy.discount.mutable;
 
-import com.study.design.pattern.behavior.strategy.DiscountType;
-import com.study.design.pattern.behavior.strategy.GroupDiscountStrategy;
-import com.study.design.pattern.behavior.strategy.IDiscountStrategy;
-import com.study.design.pattern.behavior.strategy.NormalDiscountStrategy;
+import com.study.design.pattern.behavior.strategy.discount.DiscountType;
+import com.study.design.pattern.behavior.strategy.discount.GroupDiscountStrategy;
+import com.study.design.pattern.behavior.strategy.discount.IDiscountStrategy;
+import com.study.design.pattern.behavior.strategy.discount.NormalDiscountStrategy;
 
 import java.util.HashMap;
 import java.util.Map;

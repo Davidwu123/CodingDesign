@@ -1,4 +1,4 @@
-package com.study.design.pattern.behavior.strategy;
+package com.study.design.pattern.behavior.strategy.discount;
 
 
 /**
