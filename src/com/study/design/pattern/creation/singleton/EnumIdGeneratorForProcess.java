@@ -31,6 +31,10 @@ public enum EnumIdGeneratorForProcess implements IIdGenerator{
         }
     };
 
+    public static EnumIdGeneratorForProcess getInstance() {
+        return INSTANCE;
+    }
+
 
     EnumIdGeneratorForProcess() {
         Log.d(EnumIdGeneratorForProcess.class, "枚举类构造函数初始化");

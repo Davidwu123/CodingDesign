@@ -26,7 +26,7 @@ public class TestMain {
 //
 //        new Thread(()-> Log.d(TestMain.class, "run thread 2" + "\t" + IdGeneratorForProcess.getInstance4().getId()), "thread-2").start();
 //
-//        new Thread(() -> Log.d(TestMain.class, "run thread 3" + "\t" + EnumIdGeneratorForProcess.INSTANCE.getId()), "thread-3").start();
+        new Thread(() -> Log.d(TestMain.class, "run thread 3" + "\t" + EnumIdGeneratorForProcess.getInstance().getId()), "thread-3").start();
 //
 //        IIdGenerator iIdGenerator = IdGeneratorForProcess.getInstance1();
 //        getCustomId(iIdGenerator);//该方式虽然可以解决多态和抽象的功能，但是不是佷"友好"，易读性较差(有些人看不懂)
