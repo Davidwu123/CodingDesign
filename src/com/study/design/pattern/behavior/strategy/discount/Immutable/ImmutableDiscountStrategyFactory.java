@@ -13,15 +13,15 @@ import java.util.Map;
  * @date 2020-03-20 21:55
  */
 public class ImmutableDiscountStrategyFactory {
-    private static final Map<DiscountType, IDiscountStrategy> sDiscountStrategys
+    private static final Map<DiscountType, IDiscountStrategy> sDiscountStrategies
             = new HashMap<>();
     static {
-        sDiscountStrategys.putIfAbsent(DiscountType.NORMAL, new NormalDiscountStrategy());
-        sDiscountStrategys.putIfAbsent(DiscountType.GROUP, new GroupDiscountStrategy());
-        sDiscountStrategys.putIfAbsent(DiscountType.PROMOTION, new PromotionDiscountStrategy());
+        sDiscountStrategies.putIfAbsent(DiscountType.NORMAL, new NormalDiscountStrategy());
+        sDiscountStrategies.putIfAbsent(DiscountType.GROUP, new GroupDiscountStrategy());
+        sDiscountStrategies.putIfAbsent(DiscountType.PROMOTION, new PromotionDiscountStrategy());
     }
 
     public static IDiscountStrategy getDiscountStrategy(DiscountType type) {
-        return sDiscountStrategys.get(type);
+        return sDiscountStrategies.get(type);
     }
 }

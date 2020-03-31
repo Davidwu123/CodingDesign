@@ -11,7 +11,7 @@ import com.study.design.pattern.behavior.strategy.discount.mutable.MutableDiscou
  * @author wuwei
  * @title: TestMain
  * @projectName CodingDesign
- * @description: TODO
+ * @description: 策略模式和工厂模式区别：策略:是对某个具体行为的分类，执行的是一个动作；工厂：创建实例对象，到底怎么用，工厂模式不关心
  * @date 2020-03-20 21:52
  */
 public class TestMain {

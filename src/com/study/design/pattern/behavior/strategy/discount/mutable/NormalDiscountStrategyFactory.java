@@ -7,7 +7,7 @@ import com.study.design.pattern.behavior.strategy.discount.NormalDiscountStrateg
  * @author wuwei
  * @title: NormalDiscountStrategyFactory
  * @projectName CodingDesign
- * @description: TODO
+ * @description: 工厂方法
  * @date 2020-03-20 22:00
  */
 public class NormalDiscountStrategyFactory implements IDiscountStrategyFactory {

@@ -6,7 +6,7 @@ import com.study.design.pattern.behavior.strategy.discount.*;
  * @author wuwei
  * @title: DiscountStrategyEnumFactory
  * @projectName CodingDesign
- * @description: TODO
+ * @description: values()和list效果一样；对于有范围的策略既可以用封装新对象+list,也可以用枚举
  * @date 2020-03-21 18:56
  */
 public enum ImmutableDiscountStrategyEnumFactory {
