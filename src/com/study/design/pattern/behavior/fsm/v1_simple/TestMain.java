@@ -1,6 +1,7 @@
-package com.study.design.pattern.behavior.fsm;
+package com.study.design.pattern.behavior.fsm.v1_simple;
 
 import com.study.design.common.Log;
+import com.study.design.pattern.behavior.fsm.State;
 
 /**
  * @author wuwei
