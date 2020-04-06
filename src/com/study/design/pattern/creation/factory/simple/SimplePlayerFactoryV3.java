@@ -15,7 +15,8 @@ import java.util.concurrent.ConcurrentHashMap;
  * @date 2020-02-24 10:28
  */
 public class SimplePlayerFactoryV3 {
-    //创建的IPlayer对象可复用，对于每次都需要new新的不适用
+    //创建的IPlayer对象可复用，对于每次都需要new新的不适用.
+    //对于每次new的可以用反射的方式，val传入Class<T>,然后通过class.newInstance
     private static final ConcurrentHashMap<String, IPlayer> sCachedPlayerMap = new ConcurrentHashMap<>();
     static {
         sCachedPlayerMap.put("exo", new ExoPlayer());

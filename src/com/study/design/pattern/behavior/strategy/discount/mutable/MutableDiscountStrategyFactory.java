@@ -9,7 +9,7 @@ import java.util.Map;
  * @author wuwei
  * @title: MutableDiscountStrategyFactory
  * @projectName CodingDesign
- * @description: TODO
+ * @description: 适用于具体的策略比较复杂的，该case有点过度设计了
  * @date 2020-03-20 22:03
  */
 public class MutableDiscountStrategyFactory {

@@ -6,7 +6,7 @@ import com.study.design.common.Log;
  * @author wuwei
  * @title: NoRecHttpInterceptorChain
  * @projectName CodingDesign
- * @description: TODO
+ * @description: 不优雅
  * @date 2020-03-28 20:49
  */
 public class NoRecHttpInterceptorChain {

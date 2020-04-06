@@ -67,7 +67,7 @@ public class ObserverRegistry {
         Class clazz = obj.getClass();
         Method[] methods = clazz.getDeclaredMethods();//获取所有方法，不限访问修饰符(public,private,protected,default..)
         for (Method method : methods) {
-            if (method.isAnnotationPresent(Subscribe.class)) {//只筛选出被注解的方法，置于是否是指定类型参数，由上层调用者判断
+            if (method.isAnnotationPresent(Subscribe.class)) {//只筛选出被注解的方法，至于是否是指定类型参数，由上层调用者判断
                 Class[] paramsTypes = method.getParameterTypes();
                 //如果不满足就会抛出错误
                 Preconditions.checkArgument(paramsTypes.length == 1,
@@ -76,12 +76,16 @@ public class ObserverRegistry {
                         method, paramsTypes.length);
                 retMethods.add(method);
             }
-
         }
         return retMethods;
     }
 
 
+    /**
+     * 对外提供的list集合
+     * @param event
+     * @return
+     */
     public List<ObserverAction> getMatchedObserveActions(Object event) {
         List<ObserverAction> retList = new ArrayList<>();
         //如果不需要返回event的子类，则直接返回map.get(event.getClass())

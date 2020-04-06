@@ -25,6 +25,9 @@ public class RecHttpInterceptorChain {
         } else {
             executeRequest(request, response);
         }
+
+        //正常用for each不可以，因为这样每次都会全部遍历一遍，现在的需求是每个拦截器总共只能执行一次，执行完了执行总的请求
+        //如果用list,也要用有序list,且也要按照上面的操作，有一个全局的idx来记录执行到哪里了，下次可以继续这里的执行
     }
 
     private void executeRequest(StringBuilder request, StringBuilder response) {

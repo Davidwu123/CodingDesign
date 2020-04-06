@@ -8,5 +8,5 @@ package com.study.design.pattern.behavior.chain.list;
  * @date 2020-03-26 09:21
  */
 public interface IHandler {
-    public boolean handle(int range);
+    boolean handle(int range);
 }

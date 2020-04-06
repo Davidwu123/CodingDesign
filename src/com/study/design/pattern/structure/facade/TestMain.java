@@ -6,7 +6,7 @@ import com.study.design.common.Log;
  * @author wuwei
  * @title: TestMain
  * @projectName CodingDesign
- * @description: TODO
+ * @description: 门面/外观模式
  * @date 2020-03-05 13:18
  */
 public class TestMain {

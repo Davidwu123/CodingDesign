@@ -19,7 +19,7 @@ public interface IPlayer {
     void setCallback(IPlayEventCallback callback);
 
 
-    public interface IPlayEventCallback {
+    interface IPlayEventCallback {
         void onReady();
 
         void onStop();

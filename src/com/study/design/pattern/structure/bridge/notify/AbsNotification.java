@@ -20,7 +20,7 @@ public abstract class AbsNotification {
         this.mSender = sender;
     }
 
-    public void sendMsg(String msg) {
+    public final void sendMsg(String msg) {
         this.mSender.sendMsg(msg);
         doCustomConfig();
     }

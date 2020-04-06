@@ -11,8 +11,8 @@ import com.study.design.common.Log;
  */
 public class TestMain {
     public static void main(String[] args) {
-//        executeDefaultIterator();
-        executeLinkedListIterator();
+        executeDefaultIterator();
+//        executeLinkedListIterator();
     }
 
     private static void executeCustomIterator() {
@@ -39,8 +39,8 @@ public class TestMain {
         java.util.Iterator iterator1 = list.iterator();
         java.util.Iterator iterator2 = list.iterator();
         iterator1.next();
-        iterator1.remove();
-        iterator2.next();
+//        iterator1.remove();
+//        iterator2.next();
     }
 
     private static void executeLinkedListIterator() {

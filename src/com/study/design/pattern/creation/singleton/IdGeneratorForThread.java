@@ -18,6 +18,7 @@ public class IdGeneratorForThread implements IIdGenerator{
     private static final ConcurrentHashMap<Long, IdGeneratorForThread> sInstanceMap = new ConcurrentHashMap<>();
 
     public static IdGeneratorForThread getInstance() {
+        //可以动态获取当前调用线程的id
         Long tId = Thread.currentThread().getId();
         String tName = Thread.currentThread().getName();
         sInstanceMap.putIfAbsent(tId, new IdGeneratorForThread());
