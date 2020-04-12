@@ -22,8 +22,22 @@ public class ArrayList<T> implements List {
         return new ArrayListIterator(this);
     }
 
+    @Override
+    public Iterator snapshotIterator() {
+        return null;
+    }
+
     public void add(T t) {
         mElements[mCurrentSize++] = t;
+        modifyCount();
+    }
+
+    public void addAll(ArrayList<T> list) {
+        //浅拷贝数据
+    }
+
+    public void remove() {
+        mElements[mCurrentSize--] = null;
         modifyCount();
     }
 
@@ -38,6 +52,39 @@ public class ArrayList<T> implements List {
     public int size() {
         return mCurrentSize;
     }
+
+
+    private class SnapshotListIterator<T> implements Iterator {
+        private ArrayList snapShotList;
+        private int cursor;
+
+        public SnapshotListIterator(ArrayList<T> list) {
+            snapShotList = new ArrayList();
+            snapShotList.addAll(list);
+        }
+
+        @Override
+        public boolean hasNext() {
+            return cursor < snapShotList.size();
+        }
+
+        @Override
+        public void next() {
+            cursor++;
+        }
+
+        @Override
+        public T getCurrentItem() {
+            if (cursor >= snapShotList.size()) {
+                Log.e(this.getClass().getSimpleName(), "out of boundary list");
+                throw new ArrayIndexOutOfBoundsException("out of boundary list");
+            }
+            return (T) snapShotList.get(cursor);
+        }
+    }
+
+
+
 
     private class ArrayListIterator<T> implements Iterator {
         private ArrayList<T> mList;

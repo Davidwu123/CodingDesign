@@ -1,6 +1,7 @@
 package com.study.design.pattern.behavior.iterator;
 
 import com.study.design.common.Log;
+import com.study.design.verify.CustomFile;
 
 /**
  * @author wuwei
@@ -9,9 +10,12 @@ import com.study.design.common.Log;
  * @description: TODO
  * @date 2020-04-01 20:45
  */
-public class TestMain {
+public class Test{
+
     public static void main(String[] args) {
-        executeDefaultIterator();
+        Log.d(Test.class, "args " + args[0]);
+//        executeCustomIterator();
+//        executeDefaultIterator();
 //        executeLinkedListIterator();
     }
 
@@ -23,9 +27,9 @@ public class TestMain {
         arrayList.add("four");
         arrayList.add("five");
         Iterator iterator = arrayList.iterator();
+        arrayList.remove();//因为没有快照，所以外部全局的list会影响迭代器的遍历
         while (iterator.hasNext()) {
-            arrayList.add("tt");
-            Log.d(TestMain.class, "current item is " + iterator.getCurrentItem());
+            Log.d(Test.class, "current item is " + iterator.getCurrentItem());
             iterator.next();
         }
     }

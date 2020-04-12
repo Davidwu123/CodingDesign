@@ -9,4 +9,6 @@ package com.study.design.pattern.behavior.iterator;
  */
 public interface List<T> {
     Iterator iterator();
+
+    Iterator snapshotIterator();
 }
