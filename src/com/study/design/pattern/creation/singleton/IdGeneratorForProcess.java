@@ -43,7 +43,7 @@ public class IdGeneratorForProcess implements IIdGenerator{
      * 2.支持延迟加载：在调用时候创建
      * 3.getInstance()方法在实例非空时没有锁，性能较高
      * <p>
-     * PS：volatile关键字为了禁止指令重排(指令重排：会出现thread-1 sInstance3已经new成功,
+     * PS：volatile关键字为了避免指令重排带来的影响(指令重排：会出现thread-1 sInstance3已经new成功,
      * 但释放锁后thread-2就开始获取到并调用了，但是初始化构造函数还没有执行完，加上该关键字就可以禁止指令重排)
      */
     private static volatile IdGeneratorForProcess sInstance3;
@@ -94,6 +94,15 @@ public class IdGeneratorForProcess implements IIdGenerator{
     }
 
     //双重检测
+
+    /**
+     * volatile 对于双重检测锁(会出现在函数返回前，第一个线程初始化且重排序了，先赋值给实例
+     * ，然后退出锁，第二个进来第一层判断发现非空，直接返回自己线程已经用起来了。但其实实例构造函数还没有初始化成功(第一层没有加锁，可以多个线程同时访问到))
+     * 和懒汉式(函数完全返回了，所有的都执行完了，就算有重排序也不会影响拿到的实例)
+     *
+     * volatile(对实例对象的描述，即该引用对象写读近似同时发生时，一定式写完全执行结束，才能执行读，所以读出来的一定是ok的)
+     * store store 赋值 store load 读
+     */
     public static IdGeneratorForProcess getInstance3() {
         if (sInstance3 == null) {
             /**
@@ -103,6 +112,7 @@ public class IdGeneratorForProcess implements IIdGenerator{
              */
             synchronized (IdGeneratorForProcess.class) {//一般锁对象或在锁类都可以，但是该方法为静态方法，里面引用的全局变量必须是静态的，且当前类非静态类，不可以作为静态上下文
                 if (sInstance3 == null) {
+                    //该语句是非原子性操作，否则如果是原子性操作，就不需要锁了，直接加volatile即可
                     sInstance3 = new IdGeneratorForProcess();
                 }
             }

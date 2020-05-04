@@ -36,13 +36,15 @@ public class SchoolObservable {
         long start = System.currentTimeMillis();
         Log.d(SchoolObservable.class, "before send msg");
         for (IObserver observer : mList) {
-            mExecutorService.execute(new Runnable() {
-                @Override
-                public void run() {
-                    observer.handleMsg(msg);
-                }
-            });
+//            mExecutorService.execute(new Runnable() {
+//                @Override
+//                public void run() {
+                    msg = observer.handleMsg(msg);
+//                }
+//            });
         }
+        Log.d(SchoolObservable.class, "final msg is " + msg);
+
         long end = System.currentTimeMillis();
         long delta = end - start;
         Log.d(SchoolObservable.class, "send msg cost " + delta + "ms");

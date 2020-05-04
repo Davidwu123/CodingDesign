@@ -11,7 +11,9 @@ import com.study.design.common.Log;
  */
 public class ParentObserver implements IObserver {
     @Override
-    public void handleMsg(String msg) {
+    public String handleMsg(String msg) {
         Log.d(ParentObserver.class, "parent get msg " + msg);
+        msg += "p";
+        return msg;
     }
 }

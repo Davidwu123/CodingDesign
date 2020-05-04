@@ -25,4 +25,9 @@ public class MainActivity extends BaseActivity {
             }
         });
     }
+
+    @Override
+    public String doTest() {
+        return "ha ha test";
+    }
 }

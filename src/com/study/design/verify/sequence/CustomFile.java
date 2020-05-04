@@ -1,4 +1,4 @@
-package com.study.design.verify;
+package com.study.design.verify.sequence;
 
 import com.study.design.common.Log;
 

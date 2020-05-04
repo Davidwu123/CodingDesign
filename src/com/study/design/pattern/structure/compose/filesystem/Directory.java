@@ -11,7 +11,6 @@ import java.util.ArrayList;
  */
 public class Directory extends AbsFileSystemNode {
     private ArrayList<AbsFileSystemNode> arrayList = new ArrayList();
-
     public Directory(String path) {
         super(path);
     }

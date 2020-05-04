@@ -18,9 +18,6 @@ public class TestMain {
     }
     private static void executeAsyncEventBus() {
         EventBus eventBus = new AsyncEventBus();
-        //x是y父类
-        TeacherObserver teacherObserver = new TeacherObserver();
-        teacherObserver.handleX(new YMsg("test y"));
         eventBus.register(new StudentObserver());//y
         eventBus.register(new TeacherObserver());//x,z
         eventBus.post(new XMsg("我要测试xMsg"));//只能x接收

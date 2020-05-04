@@ -11,7 +11,9 @@ import com.study.design.common.Log;
  */
 public class StudentObserver implements IObserver {
     @Override
-    public void handleMsg(String msg) {
+    public String handleMsg(String msg) {
         Log.d(StudentObserver.class, "student get msg " + msg);
+        msg += "s";
+        return msg;
     }
 }

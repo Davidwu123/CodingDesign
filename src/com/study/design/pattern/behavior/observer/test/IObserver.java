@@ -8,5 +8,5 @@ package com.study.design.pattern.behavior.observer.test;
  * @date 2020-03-12 09:13
  */
 public interface IObserver {
-    void handleMsg(String msg);
+    String handleMsg(String msg);
 }

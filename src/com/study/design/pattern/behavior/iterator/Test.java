@@ -1,7 +1,6 @@
 package com.study.design.pattern.behavior.iterator;
 
 import com.study.design.common.Log;
-import com.study.design.verify.CustomFile;
 
 /**
  * @author wuwei

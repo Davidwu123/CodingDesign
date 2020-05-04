@@ -12,7 +12,9 @@ import com.study.design.common.Log;
 public class TeacherObserver implements IObserver {
 
     @Override
-    public void handleMsg(String msg) {
+    public String handleMsg(String msg) {
         Log.d(TeacherObserver.class, "teacher get msg " + msg);
+        msg += "t";
+        return msg;
     }
 }
