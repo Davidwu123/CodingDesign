@@ -11,7 +11,7 @@ import java.util.Date;
  * @date 2019-12-01 13:26
  */
 public class Log {
-
+    private static final String TAG = "Log";
 
     private static void println(String type, String tag, Object value) {
         String msg = String.format("%s\tThread-name: %s\t%s/%s:\t%s",
@@ -38,7 +38,7 @@ public class Log {
 
     private static String getCurrentTime() {
         Date d = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-HH:mm:sss");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-HH:mm:ss.sss");
         return sdf.format(d);
     }
 

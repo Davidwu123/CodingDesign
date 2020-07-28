@@ -11,7 +11,7 @@ import com.study.design.common.Log;
  */
 public class TestThread {
     private static long count = 1;
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         Thread thread = new Thread(new Runnable() {
             @Override
@@ -27,16 +27,18 @@ public class TestThread {
 
             }
         });
+        thread.wait();
         thread.start();
         Log.d(TestThread.class, "start sleep");
         try {
+            thread.join(5000);
             Thread.sleep(20);
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
             Log.d(TestThread.class, "start end, ready to interrupt");
             thread.interrupt();
-            thread.start();
+//            thread.start();
             Log.d(TestThread.class, "interrupt end");
             Log.d(TestThread.class, thread.isAlive());
             Log.d(TestThread.class, thread.isInterrupted());

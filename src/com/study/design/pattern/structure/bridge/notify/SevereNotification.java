@@ -10,7 +10,7 @@ import com.study.design.pattern.structure.bridge.send.IMessageSender;
  * @description: TODO
  * @date 2020-03-02 10:50
  */
-public class SevereNotification extends AbsNotification {
+public final class SevereNotification extends AbsNotification {
 
     public SevereNotification(IMessageSender sender) {
         super(sender);
